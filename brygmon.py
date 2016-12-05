@@ -9,8 +9,6 @@ import brygcloud
 # Load config
 config = brygconf.get()
 
-
-
 # First sleep...
 time.sleep(config['SAMPLE_TIME'])
 # ... Then work
