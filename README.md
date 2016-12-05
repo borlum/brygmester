@@ -7,7 +7,15 @@ For now, brygmester however only monitors temperature using the DS18B20 temperat
 
 Brygmesters target platform is the Raspberry Pi 3 (will work on 1 and 2 as well), using [Manjaro ARM](http://manjaro-arm.org/) as the host OS.
 
-One can just run `python brewmon.py` to start the beast, but it is advised to set it up as a service, which will start at boot -- thus, as little fiddling as possible.
+Brygmester, for now, relies on a 3rd party data-handling API, e.g. [ThingSpeak](https://thingspeak.com). This may change -- but it makes it easy to bootstrap projects, and ThingSpeak seems pretty reliable for hobby data-needs.
+
+To get up and running, one must create an account at ThingSpeak and setup a new channel (where you will push your data to). When you have created a channel, you must go to the API keys tab, and copy the *Write API Key*. Now, setup a brygmester config file as so:
+
+    cp config.json.template config.json
+
+Alter the *API KEY* entry in `config.json` to the one copied from ThingSpeak. **Optionally**, change the sample time.
+
+Now, one can just run `python brewmon.py` to start the beast, but it is advised to set it up as a service, which will start at boot -- thus, as little fiddling as possible.
 
 Assuming systemd, this is done by creating a file with the following contents:
 

@@ -1,0 +1,5 @@
+{
+    "API_KEY": "KEY_HERE_PLEASE",
+    "ENDPOINT": "https://api.thingspeak.com/update.json",
+    "SAMPLE_TIME": 300
+}
