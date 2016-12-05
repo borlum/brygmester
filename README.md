@@ -7,7 +7,7 @@ For now, brygmester however only monitors temperature using the DS18B20 temperat
 
 Brygmesters target platform is the Raspberry Pi 3 (will work on 1 and 2 as well), using [Manjaro ARM](http://manjaro-arm.org/) as the host OS.
 
-One can just run ´python brewmon.py´ to start the beast, but it is advised to set it up as a service, which will start at boot -- thus, as little fiddling as possible.
+One can just run `python brewmon.py` to start the beast, but it is advised to set it up as a service, which will start at boot -- thus, as little fiddling as possible.
 
 Assuming systemd, this is done by creating a file with the following contents:
 
