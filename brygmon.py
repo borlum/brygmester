@@ -14,5 +14,10 @@ time.sleep(config['SAMPLE_TIME'])
 # ... Then work
 while True:
     sample = brygsensor.sample()
-    brygcloud.push(config['API_KEY'], config['ENDPOINT'], sample)
+
+    brygcloud.push({
+        'api_key': config['API_KEY'], 
+        'field1': sample
+    }, config['ENDPOINT'])
+
     time.sleep(config['SAMPLE_TIME'])
