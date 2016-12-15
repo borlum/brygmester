@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Brygmester by borlum</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Brygmester</h1>
+        <p>Digital Brewing Helper!</p>
+
+        <p class="view"><a href="https://github.com/borlum/brygmester">View the Project on GitHub <small>borlum/brygmester</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/borlum/brygmester/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/borlum/brygmester/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/borlum/brygmester">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="brygmester" class="anchor" href="#brygmester" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BRYGMESTER</h1>
+
+<p>Brygmester is your digital-brew-helper! It serves your by monitoring your brew and keeping you up to date with data.</p>
+
+<p>For now, brygmester however only monitors temperature using the DS18B20 temperature sensor.</p>
+
+<p>Brygmesters target platform is the Raspberry Pi 3 (will work on 1 and 2 as well), using <a href="http://manjaro-arm.org/">Manjaro ARM</a> as the host OS.</p>
+
+<p>Brygmester, for now, relies on a 3rd party data-handling API, <a href="https://thingspeak.com">ThingSpeak</a>. This may change -- but it makes it easy to bootstrap projects, and ThingSpeak seems pretty reliable for hobby data-needs.</p>
+
+<h1>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SETUP</h1>
+
+<p>To get up and running, one must create an account at ThingSpeak and setup a new channel (where you will push your data to). When you have created a channel, you must go to the API keys tab, and copy the <em>Write API Key</em>. Now, setup a brygmester config file as so:</p>
+
+<pre><code>cp config.json.template config.json
+</code></pre>
+
+<p>Alter the <em>API KEY</em> entry in <code>config.json</code> to the one copied from ThingSpeak. <strong>Optionally</strong>, change the sample time.</p>
+
+<p>Now, one can just run <code>python brewmon.py</code> to start the beast, but it is advised to set it up as a service, which will start at boot -- thus, as little fiddling as possible.</p>
+
+<p>Assuming systemd, this is done by creating a file with the following contents:</p>
+
+<pre><code>[Unit]
+Description=Brygmester Monitor
+
+[Service]
+ExecStart=/path/to/brygmon.py
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>And saving it in /etc/systemd/system/brygmon.service. Afterwards, run:</p>
+
+<pre><code>systemctl enable brygmon.service
+</code></pre>
+
+<p>And you are good to go!</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/borlum">borlum</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
