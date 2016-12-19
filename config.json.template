@@ -1,5 +1,9 @@
 {
-    "API_KEY": "KEY_HERE_PLEASE",
+    "API_KEY": "YOURKEYHERE",
     "ENDPOINT": "https://api.thingspeak.com/update.json",
-    "SAMPLE_TIME": 300
+    "SER_PORT": "/dev/ttyACM0",
+    "SAMPLE_TIME_MS": 200,
+    "CLOUD_PUSH_TIME_S": 60,
+    "CO2_ADC_THRESHOLD": 75,
+    "CSV_LOG": "data.csv"
 }
