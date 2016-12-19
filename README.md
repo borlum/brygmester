@@ -35,3 +35,13 @@ And saving it in /etc/systemd/system/brygmon.service. Afterwards, run:
     systemctl enable brygmon.service
 
 And you are good to go!
+
+TROUBLESHOOT
+============
+Adding support for OneWire in RaspberryPi; modify `/boot/config.txt` by adding the following line at the bottom:
+    
+    dtoverlay=w1-gpio
+
+With the CO2 serial module (read: Arduino-hacked-as-serial-ADC), one may run into permission problems reading from serial. Make sure you have added yourself to uucp group by:
+    
+    usermod -a -G uucp yourregusername
