@@ -46,4 +46,4 @@ def sample(testing = False):
     if pos != -1:
         temperature_string = lines[1][pos + 2:]
         temperature_celcius = float(temperature_string) / 1000.0
-        return temp_c
+        return temperature_celcius
