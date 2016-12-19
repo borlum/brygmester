@@ -45,3 +45,5 @@ Adding support for OneWire in RaspberryPi; modify `/boot/config.txt` by adding t
 With the CO2 serial module (read: Arduino-hacked-as-serial-ADC), one may run into permission problems reading from serial. Make sure you have added yourself to uucp group by:
     
     usermod -a -G uucp yourregusername
+
+Extra, [wiring up the DS18B20 with Raspberry Pi basics (..)](https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi).
